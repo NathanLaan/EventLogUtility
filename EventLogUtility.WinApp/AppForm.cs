@@ -6,6 +6,9 @@ namespace EventLogUtility.WinApp
 {
     public partial class AppForm : Form
     {
+
+        private readonly string LocalMachineName = ".";
+
         public AppForm()
         {
             InitializeComponent();
@@ -92,6 +95,22 @@ namespace EventLogUtility.WinApp
         private void btnClear_Click(object sender, EventArgs e)
         {
             this.txtOutput.Clear();
+        }
+
+        private void btnELSGetLogName_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string eventLogName = EventLog.LogNameFromSourceName(this.txtELS.Text, AppForm.LocalMachineName);
+                if (EventLog.SourceExists(this.txtELS.Text))
+                {
+                    MessageBox.Show("Event Log Source [" + this.txtELS.Text + "] exists");
+                }
+            }
+            catch (Exception exception)
+            {
+                this.HandleException(exception);
+            }
         }
 
     }

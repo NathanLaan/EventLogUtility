@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.lblELS = new System.Windows.Forms.Label();
-            this.txtELS = new System.Windows.Forms.TextBox();
-            this.btnELSExists = new System.Windows.Forms.Button();
-            this.btnELSDelete = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.btnELNDelete = new System.Windows.Forms.Button();
             this.btnELNExists = new System.Windows.Forms.Button();
             this.txtELN = new System.Windows.Forms.TextBox();
             this.lblELN = new System.Windows.Forms.Label();
-            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnELSDelete = new System.Windows.Forms.Button();
+            this.btnELSExists = new System.Windows.Forms.Button();
+            this.txtELS = new System.Windows.Forms.TextBox();
+            this.lblELS = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnELSGetLogName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.btnELSGetLogName);
             this.splitContainer.Panel1.Controls.Add(this.btnClear);
             this.splitContainer.Panel1.Controls.Add(this.btnCreate);
             this.splitContainer.Panel1.Controls.Add(this.btnELNDelete);
@@ -76,45 +78,26 @@
             this.splitContainer.SplitterDistance = 100;
             this.splitContainer.TabIndex = 0;
             // 
-            // lblELS
+            // btnClear
             // 
-            this.lblELS.AutoSize = true;
-            this.lblELS.Location = new System.Drawing.Point(13, 13);
-            this.lblELS.Name = "lblELS";
-            this.lblELS.Size = new System.Drawing.Size(96, 13);
-            this.lblELS.TabIndex = 0;
-            this.lblELS.Text = "Event Log Source:";
+            this.btnClear.Location = new System.Drawing.Point(537, 63);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // txtELS
+            // btnCreate
             // 
-            this.txtELS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtELS.Location = new System.Drawing.Point(115, 10);
-            this.txtELS.Name = "txtELS";
-            this.txtELS.Size = new System.Drawing.Size(335, 20);
-            this.txtELS.TabIndex = 1;
-            // 
-            // btnELSExists
-            // 
-            this.btnELSExists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELSExists.Location = new System.Drawing.Point(456, 8);
-            this.btnELSExists.Name = "btnELSExists";
-            this.btnELSExists.Size = new System.Drawing.Size(75, 23);
-            this.btnELSExists.TabIndex = 2;
-            this.btnELSExists.Text = "Exists";
-            this.btnELSExists.UseVisualStyleBackColor = true;
-            this.btnELSExists.Click += new System.EventHandler(this.btnELSExists_Click);
-            // 
-            // btnELSDelete
-            // 
-            this.btnELSDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELSDelete.Location = new System.Drawing.Point(537, 8);
-            this.btnELSDelete.Name = "btnELSDelete";
-            this.btnELSDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnELSDelete.TabIndex = 3;
-            this.btnELSDelete.Text = "Delete";
-            this.btnELSDelete.UseVisualStyleBackColor = true;
-            this.btnELSDelete.Click += new System.EventHandler(this.btnELSDelete_Click);
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreate.Location = new System.Drawing.Point(456, 63);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 8;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnELNDelete
             // 
@@ -156,16 +139,45 @@
             this.lblELN.TabIndex = 4;
             this.lblELN.Text = "Event Log Name:";
             // 
-            // btnCreate
+            // btnELSDelete
             // 
-            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreate.Location = new System.Drawing.Point(456, 63);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnCreate.TabIndex = 8;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.btnELSDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnELSDelete.Location = new System.Drawing.Point(537, 8);
+            this.btnELSDelete.Name = "btnELSDelete";
+            this.btnELSDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnELSDelete.TabIndex = 3;
+            this.btnELSDelete.Text = "Delete";
+            this.btnELSDelete.UseVisualStyleBackColor = true;
+            this.btnELSDelete.Click += new System.EventHandler(this.btnELSDelete_Click);
+            // 
+            // btnELSExists
+            // 
+            this.btnELSExists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnELSExists.Location = new System.Drawing.Point(456, 8);
+            this.btnELSExists.Name = "btnELSExists";
+            this.btnELSExists.Size = new System.Drawing.Size(75, 23);
+            this.btnELSExists.TabIndex = 2;
+            this.btnELSExists.Text = "Exists";
+            this.btnELSExists.UseVisualStyleBackColor = true;
+            this.btnELSExists.Click += new System.EventHandler(this.btnELSExists_Click);
+            // 
+            // txtELS
+            // 
+            this.txtELS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtELS.Location = new System.Drawing.Point(115, 10);
+            this.txtELS.Name = "txtELS";
+            this.txtELS.Size = new System.Drawing.Size(254, 20);
+            this.txtELS.TabIndex = 1;
+            // 
+            // lblELS
+            // 
+            this.lblELS.AutoSize = true;
+            this.lblELS.Location = new System.Drawing.Point(13, 13);
+            this.lblELS.Name = "lblELS";
+            this.lblELS.Size = new System.Drawing.Size(96, 13);
+            this.lblELS.TabIndex = 0;
+            this.lblELS.Text = "Event Log Source:";
             // 
             // txtOutput
             // 
@@ -176,15 +188,16 @@
             this.txtOutput.Size = new System.Drawing.Size(624, 337);
             this.txtOutput.TabIndex = 0;
             // 
-            // btnClear
+            // btnELSGetLogName
             // 
-            this.btnClear.Location = new System.Drawing.Point(537, 63);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 9;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnELSGetLogName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnELSGetLogName.Location = new System.Drawing.Point(375, 8);
+            this.btnELSGetLogName.Name = "btnELSGetLogName";
+            this.btnELSGetLogName.Size = new System.Drawing.Size(75, 23);
+            this.btnELSGetLogName.TabIndex = 10;
+            this.btnELSGetLogName.Text = "Get Log";
+            this.btnELSGetLogName.UseVisualStyleBackColor = true;
+            this.btnELSGetLogName.Click += new System.EventHandler(this.btnELSGetLogName_Click);
             // 
             // AppForm
             // 
@@ -222,6 +235,7 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnELSGetLogName;
     }
 }
 
