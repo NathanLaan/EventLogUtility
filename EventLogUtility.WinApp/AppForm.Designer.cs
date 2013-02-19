@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.btnELSGetLogName = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnELNDelete = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.txtELS = new System.Windows.Forms.TextBox();
             this.lblELS = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.btnELSGetLogName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -74,13 +74,24 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.txtOutput);
-            this.splitContainer.Size = new System.Drawing.Size(624, 441);
+            this.splitContainer.Size = new System.Drawing.Size(632, 453);
             this.splitContainer.SplitterDistance = 100;
             this.splitContainer.TabIndex = 0;
             // 
+            // btnELSGetLogName
+            // 
+            this.btnELSGetLogName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnELSGetLogName.Location = new System.Drawing.Point(383, 8);
+            this.btnELSGetLogName.Name = "btnELSGetLogName";
+            this.btnELSGetLogName.Size = new System.Drawing.Size(75, 23);
+            this.btnELSGetLogName.TabIndex = 10;
+            this.btnELSGetLogName.Text = "Get Log";
+            this.btnELSGetLogName.UseVisualStyleBackColor = true;
+            this.btnELSGetLogName.Click += new System.EventHandler(this.btnELSGetLogName_Click);
+            // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(537, 63);
+            this.btnClear.Location = new System.Drawing.Point(545, 63);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 9;
@@ -91,7 +102,7 @@
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreate.Location = new System.Drawing.Point(456, 63);
+            this.btnCreate.Location = new System.Drawing.Point(464, 63);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 8;
@@ -102,7 +113,7 @@
             // btnELNDelete
             // 
             this.btnELNDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELNDelete.Location = new System.Drawing.Point(537, 34);
+            this.btnELNDelete.Location = new System.Drawing.Point(545, 34);
             this.btnELNDelete.Name = "btnELNDelete";
             this.btnELNDelete.Size = new System.Drawing.Size(75, 23);
             this.btnELNDelete.TabIndex = 7;
@@ -113,7 +124,7 @@
             // btnELNExists
             // 
             this.btnELNExists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELNExists.Location = new System.Drawing.Point(456, 34);
+            this.btnELNExists.Location = new System.Drawing.Point(464, 34);
             this.btnELNExists.Name = "btnELNExists";
             this.btnELNExists.Size = new System.Drawing.Size(75, 23);
             this.btnELNExists.TabIndex = 6;
@@ -127,7 +138,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtELN.Location = new System.Drawing.Point(115, 36);
             this.txtELN.Name = "txtELN";
-            this.txtELN.Size = new System.Drawing.Size(335, 20);
+            this.txtELN.Size = new System.Drawing.Size(343, 20);
             this.txtELN.TabIndex = 5;
             // 
             // lblELN
@@ -142,7 +153,7 @@
             // btnELSDelete
             // 
             this.btnELSDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELSDelete.Location = new System.Drawing.Point(537, 8);
+            this.btnELSDelete.Location = new System.Drawing.Point(545, 8);
             this.btnELSDelete.Name = "btnELSDelete";
             this.btnELSDelete.Size = new System.Drawing.Size(75, 23);
             this.btnELSDelete.TabIndex = 3;
@@ -153,7 +164,7 @@
             // btnELSExists
             // 
             this.btnELSExists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELSExists.Location = new System.Drawing.Point(456, 8);
+            this.btnELSExists.Location = new System.Drawing.Point(464, 8);
             this.btnELSExists.Name = "btnELSExists";
             this.btnELSExists.Size = new System.Drawing.Size(75, 23);
             this.btnELSExists.TabIndex = 2;
@@ -167,7 +178,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtELS.Location = new System.Drawing.Point(115, 10);
             this.txtELS.Name = "txtELS";
-            this.txtELS.Size = new System.Drawing.Size(254, 20);
+            this.txtELS.Size = new System.Drawing.Size(262, 20);
             this.txtELS.TabIndex = 1;
             // 
             // lblELS
@@ -185,25 +196,14 @@
             this.txtOutput.Location = new System.Drawing.Point(0, 0);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(624, 337);
+            this.txtOutput.Size = new System.Drawing.Size(632, 349);
             this.txtOutput.TabIndex = 0;
-            // 
-            // btnELSGetLogName
-            // 
-            this.btnELSGetLogName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnELSGetLogName.Location = new System.Drawing.Point(375, 8);
-            this.btnELSGetLogName.Name = "btnELSGetLogName";
-            this.btnELSGetLogName.Size = new System.Drawing.Size(75, 23);
-            this.btnELSGetLogName.TabIndex = 10;
-            this.btnELSGetLogName.Text = "Get Log";
-            this.btnELSGetLogName.UseVisualStyleBackColor = true;
-            this.btnELSGetLogName.Click += new System.EventHandler(this.btnELSGetLogName_Click);
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
