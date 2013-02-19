@@ -7,7 +7,7 @@ namespace EventLogUtility.WinApp
     public partial class AppForm : Form
     {
 
-        private readonly string LocalMachineName = ".";
+        private const string LocalMachineName = ".";
 
         public AppForm()
         {
