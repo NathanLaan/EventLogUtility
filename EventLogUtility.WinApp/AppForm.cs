@@ -102,11 +102,13 @@ namespace EventLogUtility.WinApp
             try
             {
                 string eventLogName = EventLog.LogNameFromSourceName(this.txtELS.Text, AppForm.LocalMachineName);
+                string outputMessage = "Event Log [{0}] corresponds to Event Log Source [{1}]";
                 if (String.IsNullOrEmpty(eventLogName))
                 {
-                    eventLogName = "No Event Log Found";
+                    outputMessage = "No Event Log found for Event Log Source [{1}]";
                 }
-                this.txtOutput.AppendText(string.Format("[{0}] for Event Log Source [{1}]", eventLogName, this.txtELS.Text));
+                this.txtOutput.AppendText(string.Format(outputMessage, eventLogName, this.txtELS.Text));
+                this.txtOutput.AppendText(Environment.NewLine);
             }
             catch (Exception exception)
             {
