@@ -20,7 +20,13 @@ namespace EventLogUtility.WinApp
             {
                 if (EventLog.SourceExists(this.txtELS.Text))
                 {
-                    MessageBox.Show("Event Log Source [" + this.txtELS.Text + "] exists");
+                    this.txtOutput.AppendText("Event Log Source [" + this.txtELS.Text + "] exists");
+                    this.txtOutput.AppendText(Environment.NewLine);
+                }
+                else
+                {
+                    this.txtOutput.AppendText("Event Log Source [" + this.txtELS.Text + "] does not exist");
+                    this.txtOutput.AppendText(Environment.NewLine);
                 }
             }
             catch (Exception exception)
@@ -47,7 +53,13 @@ namespace EventLogUtility.WinApp
             {
                 if (EventLog.Exists(this.txtELN.Text))
                 {
-                    MessageBox.Show("Event Log [" + this.txtELN.Text + "] exists");
+                    this.txtOutput.AppendText("Event Log [" + this.txtELN.Text + "] exists");
+                    this.txtOutput.AppendText(Environment.NewLine);
+                }
+                else
+                {
+                    this.txtOutput.AppendText("Event Log [" + this.txtELN.Text + "] does not exist");
+                    this.txtOutput.AppendText(Environment.NewLine);
                 }
             }
             catch (Exception exception)
